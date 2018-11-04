@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'merchant.apps.MerchantConfig',
     'geckotask.apps.GeckotaskConfig',
+    'product.apps.ProductConfig',
 ]
 
 MIDDLEWARE = [

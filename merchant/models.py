@@ -25,7 +25,7 @@ class Merchant(models.Model):
     url = models.URLField(verbose_name = '网站', help_text = '商家网站', blank=True) # Default length: 200
     tel = models.CharField(verbose_name = '电话', max_length = 16, help_text = '商家电话', blank=True)
     country = models.CharField(verbose_name= '国家', max_length = 32, 
-        choices = COUNTRY_LIST, help_text = '商家所在国家')
+        choices = COUNTRY_LIST, help_text = '商家所在国家', blank = True)
     addresse = models.TextField(verbose_name = '地址', help_text = '商家地址', blank=True)
     last_modyfied_time = models.DateTimeField(auto_now_add=True)
 
@@ -40,7 +40,7 @@ class Merchant(models.Model):
 
 class MerchantCatalog(models.Model):
     '''
-    Website's catalog. 
+    Website's catalog.
     The catalog is a range of products and a task for Gecko.
     '''
     
