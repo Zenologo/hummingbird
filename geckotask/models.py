@@ -29,6 +29,7 @@ class Parser(models.Model):
     gecko_task = models.ForeignKey('GeckoTask', verbose_name = 'Gecko任务', on_delete = models.CASCADE, help_text = 'Gecko任务')
     type = models.CharField(verbose_name = '表达式类型', max_length = 20 , choices = EXPRESSTION_TYPE,
         default = 'XPath', help_text = '表达式类型', blank=True)
+    expression = models.CharField(verbose_name = '表达式', max_length = 255, help_text='解析所使用的表达式，可以是XPath, CSS, 正则表达式', blank=True)
     active = models.BooleanField(default=1)
     order = models.PositiveIntegerField(default = 0, verbose_name = '运行顺序', help_text = '顺序是由小到大排序')
 
