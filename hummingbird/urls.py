@@ -32,8 +32,8 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/home', permanent=True)),
-]
+    path('', RedirectView.as_view(url='/home', permanent=False)),
+] 
 
 
 
