@@ -2,6 +2,6 @@
 **/migrations
 .vscode
 virmrc
-.pyc
+*.pyc
 __pycache__
 migrations
