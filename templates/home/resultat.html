@@ -1,0 +1,25 @@
+{% load static %}
+
+
+
+<html>
+  <head>
+    <title>Résultat</title>
+    <link rel="stylesheet" type="text/css" href="{% static "homepage.css" %}">
+  </head>
+  <body>
+    <div id="main" class="content">
+      <center>
+      <h1>Résultat Page</h1>
+        {% for product in lst_pro %}
+          <h3> 
+            ID:  {{ product.id}}, 名称: {{ product.name }}, 
+            中文名称: {{ product.chinese_name }}, 价格: {{ product.price }}
+          </h3> 
+          
+        {% endfor %}
+<!--        <img src="{% static "test_01.jpeg" %}" alt="Test Image" /> -->
+      </center>
+    </div>
+  </body>
+</html>
