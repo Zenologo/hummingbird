@@ -1,5 +1,6 @@
 from django.db import models
 from product.models import ProductBrand, Product
+from datetime import datetime
 
 class Merchant(models.Model):
     '''
@@ -55,20 +56,33 @@ class MerchantCatalog(models.Model):
     def __str__(self):
         return "catalog_" + str(self.id) + "_" + str(self.brand)
 
+
 class MerchantProduct(models.Model):
-    '''
-    All merchant's products.
-    '''
     id = models.AutoField(primary_key=True)
-    merchant = models.ForeignKey(Merchant, verbose_name = '商家名称', on_delete = models.CASCADE, null = True, help_text = '商家名称')
-    name = models.CharField(verbose_name = '产品名', blank = True,  max_length = 255, help_text = '产品名')
-    brand = models.ForeignKey(MerchantCatalog, on_delete = models.CASCADE, null = True, help_text = '品牌名')
-    product_name = models.ForeignKey(Product, on_delete = models.CASCADE, null = True, help_text='产品名')
-    chinese_name = models.CharField(verbose_name = '中文名称', max_length = 255, help_text='中文名称', blank=True)
-    url = models.URLField(verbose_name='目录链接', help_text='产品目录链接', blank=True) # Default length: 200
-    price = models.DecimalField(max_digits = 18, verbose_name='价格',  decimal_places=2, help_text='价格', blank=True)
-    description = models.TextField(verbose_name = '产品介绍', help_text='产品介绍', blank=True)
-    specification = models.CharField(verbose_name = '产品规格', max_length = 16, help_text = '产品规格', blank=True)
+    merchant = models.ForeignKey(Merchant, verbose_name = 'Merchant', on_delete = models.CASCADE, null = True, help_text = '商家名称')
+    brand = models.ForeignKey(MerchantCatalog, verbose_name = 'Brand', on_delete = models.CASCADE, null = True, help_text = '品牌名')
+    product = models.ForeignKey(Product, on_delete = models.CASCADE, null = True, help_text='产品名')
+    chinese_name = models.CharField(verbose_name = 'Chinese name', max_length = 255, help_text='中文名称', blank=True)
+    url = models.URLField(verbose_name='URL', help_text='产品目录链接', blank=True) # Default length: 200
+    price = models.DecimalField(max_digits = 18, verbose_name='Price',  decimal_places=2, help_text='价格', blank=True)
+    short_description = models.TextField(verbose_name = 'Short description', help_text='产品简介', blank=True) 
+    description = models.TextField(verbose_name = 'Description', help_text='产品介绍', blank=True)
+    specification = models.CharField(verbose_name = 'Specification', max_length = 16, help_text = '产品规格', blank=True)
+    date = models.DateTimeField(verbose_name = 'Last modified time', default = datetime.now, blank = True, help_text = '更新时间')
     
     def __str__(self):
-        return "product_" + str(self.id) + "_" + str(self.product_name)
+        return "product_" + str(self.id) + "_" + str(self.product)
+
+
+class PriceMonitor(models.Model):
+    id = models.AutoField(primary_key=True)
+    merchant_product = models.ForeignKey(MerchantProduct, on_delete = models.CASCADE, null = True, help_text='产品名')
+    url = models.URLField(verbose_name='URL', help_text='产品目录链接', blank=True) # Default length: 200
+    price = models.DecimalField(max_digits = 18, verbose_name='Price',  decimal_places=2, help_text='价格', blank=True)
+    short_description = models.TextField(verbose_name = 'Short description', help_text='产品简介', blank=True) 
+    description = models.TextField(verbose_name = 'Description', help_text='产品介绍', blank=True)
+    specification = models.CharField(verbose_name = 'Specification', max_length = 16, help_text = '产品规格', blank=True)
+    date = models.DateTimeField(verbose_name = 'Last modified time', default = datetime.now, blank = True, help_text = '更新时间')
+    
+    def __str__(self):
+        return "product_" + str(self.id) + "_" + str(self.merchant_product)
