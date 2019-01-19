@@ -6,16 +6,39 @@
     <link rel="stylesheet" type="text/css" href="{% static "homepage.css" %}">
   </head>
   <body>
-    <div id="main" class="content">
-      <center>
-        <h1>13号仓库</h1>
-        <form action="/home/" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <br /><br />
-            <input type="submit" value="Search">
-        </form>
-      </center>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <center>
+                <h1>N°13 WAREHOUSE</h1>
+                  <form action="/home/" method="post">
+                      {% csrf_token %}
+                      {{ form }}
+                      <br /><br />
+                      <input type="submit" value="Search">
+                  </form>
+              </center>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+
   </body>
 </html>
