@@ -27,7 +27,7 @@ class Merchant(models.Model):
     url = models.URLField(verbose_name = '网站', help_text = '商家网站', blank=True) # Default length: 200
     tel = models.CharField(verbose_name = '电话', max_length = 16, help_text = '商家电话', blank=True)
     country = models.CharField(verbose_name= '国家', max_length = 32, 
-        choices = COUNTRY_LIST, help_text = '商家所在国家', blank = True)
+    choices = COUNTRY_LIST, help_text = '商家所在国家', blank = True)
     addresse = models.TextField(verbose_name = '地址', help_text = '商家地址', blank=True)
 
 
@@ -62,13 +62,14 @@ class MerchantProduct(models.Model):
     merchant = models.ForeignKey(Merchant, verbose_name = 'Merchant', on_delete = models.CASCADE, null = True, help_text = '商家名称')
     brand = models.ForeignKey(MerchantCatalog, verbose_name = 'Brand', on_delete = models.CASCADE, null = True, help_text = '品牌名')
     product = models.ForeignKey(Product, on_delete = models.CASCADE, null = True, help_text='产品名')
-    chinese_name = models.CharField(verbose_name = 'Chinese name', max_length = 255, help_text='中文名称', blank=True)
-    url = models.URLField(verbose_name='URL', help_text='产品目录链接', blank=True) # Default length: 200
-    price = models.DecimalField(max_digits = 18, verbose_name='Price',  decimal_places=2, help_text='价格', blank=True)
-    short_description = models.TextField(verbose_name = 'Short description', help_text='产品简介', blank=True) 
-    description = models.TextField(verbose_name = 'Description', help_text='产品介绍', blank=True)
-    specification = models.CharField(verbose_name = 'Specification', max_length = 16, help_text = '产品规格', blank=True)
-    date = models.DateTimeField(verbose_name = 'Last modified time', default = datetime.now, blank = True, help_text = '更新时间')
+    
+    # chinese_name = models.CharField(verbose_name = 'Chinese name', max_length = 255, help_text='中文名称', blank=True)
+    # url = models.URLField(verbose_name='URL', help_text='产品目录链接', blank=True) # Default length: 200
+    # price = models.DecimalField(max_digits = 18, verbose_name='Price',  decimal_places=2, help_text='价格', blank=True)
+    # short_description = models.TextField(verbose_name = 'Short description', help_text='产品简介', blank=True) 
+    # description = models.TextField(verbose_name = 'Description', help_text='产品介绍', blank=True)
+    # specification = models.CharField(verbose_name = 'Specification', max_length = 16, help_text = '产品规格', blank=True)
+    # date = models.DateTimeField(verbose_name = 'Last modified time', default = datetime.now, blank = True, help_text = '更新时间')
     
     def __str__(self):
         return "product_" + str(self.id) + "_" + str(self.product)
