@@ -19,9 +19,9 @@
             <div class="col-md-4">
               <center>
                 <h1>N°13 WAREHOUSE</h1>
-                  <form action="/home/" method="post">
+                  <form action="{% url "home-page" %}" method="post">
                       {% csrf_token %}
-                      {{ form }}
+                      {{ serach_form }}
                       <br /><br />
                       <input type="submit" value="Search">
                   </form>
@@ -37,8 +37,6 @@
         </div>
       </div>
     </div>
-
-
 
   </body>
 </html>
