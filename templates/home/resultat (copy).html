@@ -1,0 +1,181 @@
+{% load static %}
+
+
+
+<html>
+  <head>
+    <title>Résultat</title>
+<!--    <link rel="stylesheet" type="text/css" href="{% static "homepage.css" %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static "s1746.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "r1746.css" %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static "stocks.css" %}">
+  </head>
+  <body class="body--serp">
+
+<div class="site-wrapper  js-site-wrapper" style="min-height: 314px;">
+  <div id="header_wrapper" class="header-wrap js-header-wrap">
+    <div id="header" class="header  cw">
+      <div class="header__search-wrap">
+        <a tabindex="-1" href="" class="header__logo-wrap">
+          <span class="header__logo">Logo</span>
+        </a>
+        <div class="header__content  header__search">
+          <form action="{% url "home-page" %}" method="post" calss="search--adv  search--header">
+              {% csrf_token %}
+              {{ serach_form }}
+              <input type="submit" value="Search">
+          </form>
+        </div>
+      </div>
+      <div id="duckbar" class="zcm-wrap  zcm-wrap--header  is-noscript-hidden">
+        <div class="zcm">
+          <ul class="zcm__menu zcm__constant has-zci" id="duckbar_static">
+          <!--
+            <li class="zcm__item">
+              <a data-zci-link="web" class="zcm__link  js-zci-link  js-zci-link--web  is-active" href="#">Web</a>
+            </li>
+            <li class="zcm__item">
+              <a data-zci-link="images" class="zcm__link  js-zci-link  js-zci-link--images" href="#">Images</a>
+            </li>
+            <li class="zcm__item">
+              <a data-zci-link="videos" class="zcm__link  js-zci-link  js-zci-link--videos" href="#">Videos</a>
+            </li>
+            <li class="zcm__item">
+              <a data-zci-link="news" class="zcm__link  js-zci-link  js-zci-link--news" href="#">News</a>
+            </li>
+            -->
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="header--aside js-header-aside">
+      <div class="header--aside__item social">
+        <div class="modal modal--popout modal--popout--bottom-left modal--popout--sm  js-popout-main" data-type="social">
+          <div class="modal__box">
+            <div class="modal__body">
+              <div class="social__link">
+              </div>
+              <div class="social__link">
+              </div>
+              <div class="social__link">
+              </div>
+            </div>
+          </div>
+        </div>							
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="cw">
+    <div class="serp__results js-serp-results">
+      <div class="results--main">
+
+        <div id="links" class="results">
+          <div class="result results_links_deep highlight_d result--url-above-snippet" data-domain="stackoverflow.com" data-hostname="stackoverflow.com" data-nir="1">
+            <div class="result__body links_main links_deep">
+              <h2 class="result__title">
+                <a class="result__a" rel="noopener" href="https://stackoverflow.com/questions/10695322/django-show-the-length-of-a-queryset-in-a-template">
+                  <b>django</b> - show the length of a 
+                  <b>queryset</b> in a template - Stack ...
+                </a>
+                <a rel="noopener" class="result__check" href="https://stackoverflow.com/questions/10695322/django-show-the-length-of-a-queryset-in-a-template">
+                  <span class="result__check__tt">Your browser indicates if you've visited this link</span>
+                </a>
+              </h2>
+              <div class="result__extras js-result-extras">
+                <div class="result__extras__url">
+                  <span class="result__icon ">
+                    <a href="/?q=django%20queryset%20size+site:stackoverflow.com&amp;t=lm&amp;atb=v142-1__" title="Search domain stackoverflow.com/questions/10695322/django-show-the-length-of-a-queryset-in-a-template" class="js-result-extras-site_search">
+                      <img data-src="//proxy.duckduckgo.com/ip3/stackoverflow.com.ico" title="Search domain stackoverflow.com/questions/10695322/django-show-the-length-of-a-queryset-in-a-template" class="result__icon__img js-lazyload-icons" src="//proxy.duckduckgo.com/ip3/stackoverflow.com.ico" width="16" height="16">
+                      </a>
+                    </span>
+                    <a href="https://stackoverflow.com/questions/10695322/django-show-the-length-of-a-queryset-in-a-template" rel="noopener" class="result__url js-result-extras-url">
+                      <span class="result__url__domain">https://stackoverflow.com</span>
+                      <span class="result__url__full">/questions/10695322/django-show-the-length-of-a-queryset-in-a-template</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="result__snippet js-result-snippet">If the 
+                  <b>QuerySet</b> only exists to count the amount of rows, use count(). If the 
+                  <b>QuerySet</b> is used elsewhere , i.e. in a loop, use len() or |length. Using count() here would issue another SELECT-query to count the rows, while len() simply counts the amount of cached results in the 
+                  <b>QuerySet</b>.
+                </div>
+              </div>
+            </div>
+            <div id="organic-module"></div>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer" style="display: block;">
+  <div class="footer__left">
+    <div class="footer_cards">
+      <a class="footer__card js-footer-card bg-clr--white" href="https://duckduckgo.com/newsletter" data-id="su">
+        <img class="footer__card__icon" src="/assets/icons/newsletter.svg" alt="" aria-hidden="true">
+        <h3 class="footer__card__title tx-clr--slate">Privacy Newsletter</h3>
+        <p class="footer__text">Learn about online privacy right in your inbox.</p>
+      </a>
+      <a class="footer__card js-footer-card bg-clr--white" href="https://duckduckgo.com/bang" data-id="ba">
+        <img class="footer__card__icon" src="/assets/icons/bangs.svg" alt="" aria-hidden="true">
+        <h3 class="footer__card__title tx-clr--slate">Learn About Bangs</h3>
+        <p class="footer__text">Discover shortcuts to go to search results on other sites.</p>
+      </a>
+      <a class="footer__card js-footer-card bg-clr--white" href="https://duckduckgo.com/traffic/" data-id="traffic">
+        <img class="footer__card__icon" src="/assets/icons/traffic.svg" alt="" aria-hidden="true">
+        <h3 class="footer__card__title tx-clr--slate">22 Billion Searches</h3>
+        <p class="footer__text">We get a ton of searches, and all of them are anonymous.</p>
+      </a>
+    </div>
+  </div>
+  <div class="footer__right">
+    <div class="footer__column">
+      <h2 class="footer__title tx-clr--slate-light">Stay Informed</h2>
+      <p class="footer__text">We don't track you, but others do.</p>
+      <p class="footer__text">Learn how to protect your privacy.</p>
+      <div class="footer__links">
+        <a href="https://spreadprivacy.com" class="js-footer-link" data-id="bl">
+          <img class="footer__social-icon" src="/assets/icons/footer/globe.svg" alt="" aria-hidden="true">
+        </a>
+        <a href="https://twitter.com/duckduckgo" class="js-footer-link" data-id="tw">
+          <img class="footer__social-icon" src="/assets/icons/footer/twr.svg" alt="" aria-hidden="true">
+        </a>
+        <a href="https://reddit.com/r/duckduckgo" class="js-footer-link" data-id="rd">
+          <img class="footer__social-icon" src="/assets/icons/footer/reddit.svg" alt="" aria-hidden="true">
+        </a>
+        <a href="https://duckduckgo.com/newsletter" class="js-footer-link" data-id="nl">
+          <img class="footer__social-icon" src="/assets/icons/footer/newsletter.svg" alt="" aria-hidden="true">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+    <div id="main" class="content">
+      <center>
+      <h1>Résultat Page</h1>
+        {% for product in lst_pro %}
+          <h3> 
+            ID:  {{ product.id}}, 名称: {{ product.name }}, 
+            中文名称: {{ product.chinese_name }}, 价格: {{ product.price }}
+          </h3> 
+          
+        {% endfor %}
+      </center>
+    </div>
+-->
+
+
+
+  </body>
+</html>
