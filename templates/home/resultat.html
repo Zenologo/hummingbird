@@ -50,8 +50,13 @@
     -->
 
 
+    
+    <link rel="stylesheet" href="https://cdn.idealo.com/storage/offerpage/assets/offerpage/idealo-6f363ea7cec6ac1ec73f.css" as="style" onload="null" data-loadcss="true" media="all">
 
     <link rel="stylesheet" href="{% static "ide/overviewpage-6c1e4f13bff0ad4112c7.css"%}" as="style" onload="null" data-loadcss="true" media="all">
+    <!-- TODO: verify this file
+    <link rel="preload" href="https://cdn.idealo.com/storage/ipc/assets/overviewpage-0851ba60e5bf764703fa.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    -->
     <link rel="preload" href="{% static "ide/idealo-icons.woff2" %}" as="font" type="font/woff2" crossorigin="">
     <script async="" src="{% static "ide/gtm.js"%}"></script>
     <script type="text/javascript" defer="defer" async="" src="{% static "ide/t196.js" %}"></script>
@@ -199,8 +204,9 @@
                                 <form action="{% url "home-page" %}" method="get" class="i-search-form" aria-expanded="false" aria-haspopup="true" role="search">
                                     {% csrf_token %}
                                     {{ serach_form }}
+                                    <!--
                                     <input type="submit" value="Search">
-
+                                    -->
 
                                     <button type="reset" class="i-search-button i-search-button--cancel" title="Abandonner">
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="16" height="16" viewBox="0 0 16 16">
@@ -305,8 +311,8 @@
                     <div class="small-12 columns">
                         <div class="breadcrumb" data-breadcrumb="" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                             <span class="breadcrumb-home">
-				<a class="breadcrumb-link breadcrumb-link--home icon icon_home" data-type="home" href="https://www.idealo.fr/" data-metric-click="breadcrumbs-click"></a>
-			</span>
+                                <a class="breadcrumb-link breadcrumb-link--home icon icon_home" data-type="home" href="https://www.idealo.fr/" data-metric-click="breadcrumbs-click"></a>
+                            </span>
 
                             <div class="breadcrumb-leaf">
                                 <i class="breadcrumb-leafSeparator icon icon_arrow-right-thin"></i>
