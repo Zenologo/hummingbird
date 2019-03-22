@@ -16,7 +16,13 @@ def home_page(request):
             #lst_product = get_list_or_404(Product, name__contains=var_tmp)
             lst_product = Product.objects.filter(name__contains = var_tmp)
 
-            return render(request, 'home/resultat.html', {'lst_pro': lst_product, 'serach_form' :form})
+            total = 0
+            # Price range : échelle de prix
+            # List product :   name, marque, description, prix_min, prix_max, 
+
+            return render(request, 'home/resultat.html', {'lst_product': lst_product, 'total_results': total, 
+                                                         
+            'serach_form' :form})
         else:
             return render(request, 'home/thanks.html')
     # if a GET (or any other method) we'll create a blank form
@@ -31,3 +37,16 @@ def thanks_page(request):
 
 def resultat_page(request):
     return render(request, 'resulat.html')
+
+
+class ResultResearch:
+    """
+        All results of search. 
+    """
+    def __init__(self):
+        self.price_min = 0
+        self.price_max = 0
+        self.name = "product name"
+        self.description = "product description"
+        self.brand = "product's brand"
+
