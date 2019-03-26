@@ -3,6 +3,7 @@ from django.shortcuts import get_list_or_404, render
 from .forms import SearchForm
 #from product.models import Product
 from merchant.models import PriceMonitor, MerchantProduct
+from django.core.paginator import Paginator
 
 def home_page(request):
 
@@ -18,6 +19,9 @@ def home_page(request):
             # lst_product = Product.objects.filter(name__contains = var_tmp)
 
             lst_product = PriceMonitor.objects.filter(merchant_product__product__name__contains = var_tmp)
+            paginator = Paginator(lst_product, 20)
+            products = paginator.page(1)
+
 
             total = len(lst_product)
             print("Total: " + str(total))
@@ -54,6 +58,24 @@ def home_page(request):
         else:
             return render(request, 'home/thanks.html')
     # if a GET (or any other method) we'll create a blank form
+    elif request.method == 'GET':
+        page_current = request.GET.get('page', 1)
+        lst_product = PriceMonitor.objects.filter(merchant_product__product__name__contains = var_tmp)
+        paginator = Paginator(lst_product, 20)
+
+        try:
+            products = paginator.page(page_current)
+        except PageNotAnInteger:
+            products = paginator.page(1)
+        except EmptyPage:
+            products = paginator.page(paginator.num_pages)
+
+
+
+
+
+
+
     else:
         form = SearchForm()
 
